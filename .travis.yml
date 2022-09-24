@@ -1,0 +1,13 @@
+language: java
+install: true
+
+os: linux
+dist: focal
+jdk: openjdk11
+
+script:
+  - export JAVA_TOOL_OPTIONS=-Dhttps.protocols=TLSv1.2
+  - ./gradlew --no-daemon build check --stacktrace
+  
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
