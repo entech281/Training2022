@@ -18,6 +18,11 @@ public class Point {
         return this.y;
     }
 
+    public void move(double x, double y) {
+        this.x = this.x + x;
+        this.y = this.y + y;
+    }
+
     @Override
     public String toString(){
         return "(" + getX() + "," + getY() + ")";

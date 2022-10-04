@@ -31,7 +31,7 @@ public class Circle {
 
     @Override
     public String toString(){
-        return "(" + this.getCenter() + ", r=" + this.getRadius() + ")";
+        return "(" + this.getCenter() + ", r=" + this.getRadius() + ", Circle)";
     }
 
 }

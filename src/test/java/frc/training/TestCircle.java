@@ -10,7 +10,7 @@ public class TestCircle {
     } 
 
     @Test
-    public void testInputInputAndReturnRadiusOfUnitCicle() throws Exception {
+    public void testInputAndReturnRadiusOfUnitCicle() throws Exception {
         Circle c = new Circle(new Point(1.0, 0.0), 1.0);
         assertEquals(1.0, c.getRadius(), 0.001);
     }
@@ -41,6 +41,6 @@ public class TestCircle {
     @Test
     public void testToStringForUnitCircle() throws Exception {
         Circle c = new Circle(new Point(1.0, -1.5), 2.0);
-        assertEquals("((1.0,-1.5), r=2.0)", c + "");
+        assertEquals("((1.0,-1.5), r=2.0, Circle)", c + "");
     }
 }
