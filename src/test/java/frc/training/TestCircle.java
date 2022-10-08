@@ -4,45 +4,45 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
-public class TestCircle {
+public class TestCircle extends TestNeeds{
 
     @Test
-    public void testInputAndReturnRadiusOfUnitCicle() throws Exception {
+    public void testInputAndReturnRadiusOfUnitCicle() {
         Circle c = new Circle(new Point(1.0, 0.0), 1.0);
-        assertEquals(1.0, c.getRadius(), 0.001);
+        assertEquals(1.0, c.getRadius(), SMALLDIFFERENCE);
     }
 
     @Test
-    public void testInputAndReturnCenterPointOfUnitCicle() throws Exception {
+    public void testInputAndReturnCenterPointOfUnitCicle() {
         Circle c = new Circle(new Point(1.0, 0.0), 1.0);
         assertEquals("(1.0,0.0)", c.getCenter() + "");
     }
 
     @Test
-    public void testOutputAreaOfUnitCicle() throws Exception {
+    public void testOutputAreaOfUnitCicle() {
         Circle c = new Circle(new Point(1.0, 0.0), 1.0);
-        assertEquals(Math.PI, c.getArea(), 0.001);
+        assertEquals(Math.PI, c.getArea(), SMALLDIFFERENCE);
     }
 
     @Test
-    public void testOutputCircumferenceOfUnitCircle() throws Exception {
+    public void testOutputCircumferenceOfUnitCircle() {
         Circle c = new Circle(new Point(1.0, 0.0), 1.0);
-        assertEquals(Math.PI*2, c.getCircumference(), 0.001);
+        assertEquals(Math.PI*2, c.getCircumference(), SMALLDIFFERENCE);
     }
 
     @Test
-    public void testConstructorNegitiveOrZeroRadiusError() throws Exception {
+    public void testConstructorNegitiveOrZeroRadiusError() {
         assertThrows(Exception.class, () -> new Circle(new Point(1.0, 0.0), 0.0));
     }
 
     @Test
-    public void testToStringForUnitCircle() throws Exception {
+    public void testToStringForUnitCircle() {
         Circle c = new Circle(new Point(1.0, -1.5), 2.0);
         assertEquals("((1.0,-1.5), r=2.0, Circle)", c + "");
     }
     /*
     @Test
-    public void testMovingCircleCenterPoint() throws Exception {
+    public void testMovingCircleCenterPoint() {
         Circle c = new Circle(new Point(0.0, 0.0), 1.0);
         c.moveCenter(0.5, 0.5);
         assertEquals("(0.5,0.5)", c.getCenter() + "");

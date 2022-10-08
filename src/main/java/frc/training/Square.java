@@ -1,22 +1,15 @@
 package frc.training;
 
-public class Square {
+public class Square extends Shape {
 
-    protected Point CenterPoint;
     protected double Length;
 
-    public Square(Point centerPoint, double length)  throws Exception{
-
+    public Square(Point centerPoint, double length) {
+        super(centerPoint);
         if (length <= 0.0) {
-            throw new Exception("Square length must be greater than zero.");
+            throw new ZeroOrNegitiveValueError("Square length must be greater than zero.");
         }
-
-        this.CenterPoint = centerPoint;
         this.Length = length;
-    }
-
-    public Point getCenter() {
-        return this.CenterPoint;
     }
 
     public double getLength() {
@@ -36,43 +29,22 @@ public class Square {
         return "(" + this.getCenter() + ", l=" + this.getLength() + ", Square)";
     }
 
-    public Point getCorner(int corner) throws Exception {
+    public Point getCorner(int corner) {
 
-        double cA = 0.0;
-        double cB = 0.0;
-        int counter = 0;
-        
-        //Bottom left corner (1)
-        if (corner == 1) {
-            cA = this.CenterPoint.getX() - (this.Length/2);
-            cB = this.CenterPoint.getY() - (this.Length/2);
-            ++counter;
-        }
+        double leftSide = this.getCenter().getX() - (this.getLength()/2);
+        double bottomSide = this.getCenter().getY() - (this.getLength()/2);
 
-        //Top left corner (2)
-        if (corner == 2) {
-            cA = this.CenterPoint.getX() + (this.Length/2);
-            cB = this.CenterPoint.getY() - (this.Length/2);
-            ++counter;
+        switch (corner) {
+            case 1:
+                return new Point(leftSide, bottomSide);
+            case 2:
+                return new Point(leftSide, bottomSide+this.getLength());
+            case 3:
+                return new Point(leftSide+this.getLength(), bottomSide+this.getLength());
+            case 4:
+                return new Point(leftSide+this.getLength(), bottomSide);
+            default:
+                throw new RuntimeException("Invalid corner selected: " + corner + " Options are 1-4 going bottom left, top left, top right, bottom right");
         }
-
-        //Top right corner (3)
-        if (corner == 3) {
-            cA = this.CenterPoint.getX() + (this.Length/2);
-            cB = this.CenterPoint.getY() + (this.Length/2);
-            ++counter;
-        }
-
-        //Bottom right corner (4)
-        if (corner == 4) {
-            cA = this.CenterPoint.getX() - (this.Length/2);
-            cB = this.CenterPoint.getY() + (this.Length/2);
-            ++counter;
-        }
-        if (counter == 0) {
-            throw new Exception("Must specify a corner 1-4.");
-        }
-
-        return new Point(cA, cB);
     }
 }

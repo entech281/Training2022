@@ -1,40 +1,25 @@
 package frc.training;
 
-public class Circle {
+public class Circle extends Shape {
 
-    protected Point centerPoint;
     protected double Radius;
 
-    public Circle(Point centerPoint, double Radius) throws Exception {
+    public Circle(Point centerPoint, double Radius) {
+        super(centerPoint);
         if (Radius <= 0.0) {
-            throw new Exception("Radius must be greater than 0."); 
-        }
-        this.centerPoint = centerPoint;
+            throw new ZeroOrNegitiveValueError("Radius must be greater than 0."); 
+        } 
         this.Radius = Radius;
-    }
-
-    public Point getCenter() {
-        return this.centerPoint;
     }
 
     public double getArea() {
         return Math.PI*(this.Radius*this.Radius);
     }
-    /*
-    public void moveCenter(double x, double y) {
-        this.centerPoint.move(x, y);
-    }
-
-    public void changeRadius(double z) throws Exception {
-        if (Radius + z <= 0.0) {
-            throw new Exception("Radius must remain greater than 0."); 
-        }
-        this.Radius = this.Radius + z;
-    }
-    */
+    
     public double getCircumference() {
         return Math.PI*this.Radius*2;
     }
+
     public double getRadius() {
         return this.Radius;
     }
@@ -44,4 +29,17 @@ public class Circle {
         return "(" + this.getCenter() + ", r=" + this.getRadius() + ", Circle)";
     }
 
+    /*
+    public void moveCenter(double x, double y) {
+        this.centerPoint.move(x, y);
+    }
+
+    public void changeRadius(double z) {
+        if (Radius + z <= 0.0) {
+            throw new ZeroOrNegitiveValueError("Radius must remain greater than 0."); 
+        }
+        this.Radius = this.Radius + z;
+    }
+    */
+    
 }

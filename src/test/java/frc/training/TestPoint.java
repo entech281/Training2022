@@ -3,13 +3,13 @@ package frc.training;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class TestPoint {
+public class TestPoint extends TestNeeds{
 
     @Test
     public void testGettingCoordinats(){
         Point p = new Point(1.0, 2.0);
-        assertEquals(1.0, p.getX(), 0.001);
-        assertEquals(2.0, p.getY(), 0.001);
+        assertEquals(1.0, p.getX(), SMALLDIFFERENCE);
+        assertEquals(2.0, p.getY(), SMALLDIFFERENCE);
     }
 
     @Test
@@ -21,15 +21,15 @@ public class TestPoint {
     public void testMovingCoordinats(){
         Point p = new Point(0.0, 0.0);
         p.move(1.0, 2.0);
-        assertEquals(1.0, p.getX(), 0.001);
-        assertEquals(2.0, p.getY(), 0.001);
+        assertEquals(1.0, p.getX(), SMALLDIFFERENCE);
+        assertEquals(2.0, p.getY(), SMALLDIFFERENCE);
     }
     @Test
     public void testMovingCoordinatsNegitive(){
         Point p = new Point(0.0, 0.0);
         p.move(-1.0, -2.0);
-        assertEquals(-1.0, p.getX(), 0.001);
-        assertEquals(-2.0, p.getY(), 0.001);
+        assertEquals(-1.0, p.getX(), SMALLDIFFERENCE);
+        assertEquals(-2.0, p.getY(), SMALLDIFFERENCE);
     }
 
 
