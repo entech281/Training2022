@@ -4,6 +4,13 @@ public class Square extends Shape {
 
     protected double Length;
 
+    enum corner {
+        Bottom_Left,
+        Top_Left,
+        Top_Right,
+        Bottom_Right
+    }
+
     public Square(Point centerPoint, double length) {
         super(centerPoint);
         if (length <= 0.0) {
@@ -29,22 +36,22 @@ public class Square extends Shape {
         return "(" + this.getCenter() + ", l=" + this.getLength() + ", Square)";
     }
 
-    public Point getCorner(int corner) {
+    public Point getCorner(corner corner) {
 
         double leftSide = this.getCenter().getX() - (this.getLength()/2);
         double bottomSide = this.getCenter().getY() - (this.getLength()/2);
 
         switch (corner) {
-            case 1:
+            case Bottom_Left:
                 return new Point(leftSide, bottomSide);
-            case 2:
+            case Top_Left:
                 return new Point(leftSide, bottomSide+this.getLength());
-            case 3:
+            case Top_Right:
                 return new Point(leftSide+this.getLength(), bottomSide+this.getLength());
-            case 4:
+            case Bottom_Right:
                 return new Point(leftSide+this.getLength(), bottomSide);
             default:
-                throw new RuntimeException("Invalid corner selected: " + corner + " Options are 1-4 going bottom left, top left, top right, bottom right");
+                return new Point(0.0, 0.0);
         }
     }
 }

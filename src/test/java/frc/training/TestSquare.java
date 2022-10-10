@@ -1,6 +1,9 @@
 package frc.training;
 
 import org.junit.Test;
+
+import frc.training.Square.corner;
+
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertEquals;
 
@@ -38,16 +41,10 @@ public class TestSquare  extends TestNeeds{
     @Test
     public void testCornersForUnitSquare() {
         Square S = new Square(new Point(1.0, 1.0), 2);
-        assertEquals("(0.0,0.0)", S.getCorner(1).toString());
-        assertEquals("(0.0,2.0)", S.getCorner(2).toString());
-        assertEquals("(2.0,2.0)", S.getCorner(3).toString());
-        assertEquals("(2.0,0.0)", S.getCorner(4).toString());
-    }
-
-    @Test
-    public void testGetCornerInvalidCornerError() {
-        Square S = new Square(new Point(1.0, 0.0), 1);
-        assertThrows(Exception.class, () -> S.getCorner(0));
+        assertEquals("(0.0,0.0)", S.getCorner(corner.Bottom_Left).toString());
+        assertEquals("(0.0,2.0)", S.getCorner(corner.Top_Left).toString());
+        assertEquals("(2.0,2.0)", S.getCorner(corner.Top_Right).toString());
+        assertEquals("(2.0,0.0)", S.getCorner(corner.Bottom_Right).toString());
     }
 
     @Test
