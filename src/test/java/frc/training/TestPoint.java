@@ -16,21 +16,4 @@ public class TestPoint extends TestNeeds{
     public void testToString(){
         assertEquals("(0.0,1.0)", new Point(0.0,1.0) + "");
     }
-
-    @Test
-    public void testMovingCoordinats(){
-        Point p = new Point(0.0, 0.0);
-        p.move(1.0, 2.0);
-        assertEquals(1.0, p.getX(), SMALLDIFFERENCE);
-        assertEquals(2.0, p.getY(), SMALLDIFFERENCE);
-    }
-    @Test
-    public void testMovingCoordinatsNegitive(){
-        Point p = new Point(0.0, 0.0);
-        p.move(-1.0, -2.0);
-        assertEquals(-1.0, p.getX(), SMALLDIFFERENCE);
-        assertEquals(-2.0, p.getY(), SMALLDIFFERENCE);
-    }
-
-
 }

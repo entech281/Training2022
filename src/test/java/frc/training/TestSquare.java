@@ -27,11 +27,7 @@ public class TestSquare  extends TestNeeds{
         assertEquals(4, S.getArea(), SMALLDIFFERENCE);
     }
 
-    @Test
-    public void testOutputPerimeter() {
-        Square S = new Square(new Point(1.0, 1.0), 2);
-        assertEquals(8, S.getPerimeter(), SMALLDIFFERENCE);
-    }
+    //add square perimiter test
 
     @Test
     public void testConstructorNegitiveOrZeroLengthError() {
