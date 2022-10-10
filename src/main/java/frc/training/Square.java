@@ -4,11 +4,11 @@ public class Square extends Shape {
 
     protected double Length;
 
-    enum corner {
-        Bottom_Left,
-        Top_Left,
-        Top_Right,
-        Bottom_Right
+    enum Corner {
+        BOTTOM_LEFT,
+        TOP_LEFT,
+        TOP_RIGHT,
+        BOTTOM_RIGHT
     }
 
     public Square(Point centerPoint, double length) {
@@ -36,19 +36,19 @@ public class Square extends Shape {
         return "(" + this.getCenter() + ", l=" + this.getLength() + ", Square)";
     }
 
-    public Point getCorner(corner corner) {
+    public Point getCorner(Corner corner) {
 
         double leftSide = this.getCenter().getX() - (this.getLength()/2);
         double bottomSide = this.getCenter().getY() - (this.getLength()/2);
 
         switch (corner) {
-            case Bottom_Left:
+            case BOTTOM_LEFT:
                 return new Point(leftSide, bottomSide);
-            case Top_Left:
+            case TOP_LEFT:
                 return new Point(leftSide, bottomSide+this.getLength());
-            case Top_Right:
+            case TOP_RIGHT:
                 return new Point(leftSide+this.getLength(), bottomSide+this.getLength());
-            case Bottom_Right:
+            case BOTTOM_RIGHT:
                 return new Point(leftSide+this.getLength(), bottomSide);
             default:
                 return new Point(0.0, 0.0);
