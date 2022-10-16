@@ -1,15 +1,6 @@
 package frc.training;
 
-public class Shape {
-
-    protected Point center;
-
-    public Shape(Point center) {
-        this.center = center;
-    }
-
-    public Point getCenter() {
-        return this.center;
-    }
-    
+public abstract class Shape {
+    public abstract Point getCenter();
+    public abstract double getArea();
 }

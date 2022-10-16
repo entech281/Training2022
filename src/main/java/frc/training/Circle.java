@@ -3,13 +3,14 @@ package frc.training;
 public class Circle extends Shape {
 
     protected double Radius;
+    protected Point centerPoint;
 
     public Circle(Point centerPoint, double Radius) {
-        super(centerPoint);
         if (Radius <= 0.0) {
             throw new ZeroOrNegitiveValueError("Radius must be greater than 0."); 
         } 
         this.Radius = Radius;
+        this.centerPoint = centerPoint;
     }
 
     public double getArea() {
@@ -27,6 +28,11 @@ public class Circle extends Shape {
     @Override
     public String toString(){
         return "(" + this.getCenter() + ", r=" + this.getRadius() + ", Circle)";
+    }
+
+    @Override
+    public Point getCenter(){
+        return centerPoint;
     }
 
     /*

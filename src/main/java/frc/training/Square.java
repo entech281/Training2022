@@ -3,6 +3,7 @@ package frc.training;
 public class Square extends Shape {
 
     protected double Length;
+    protected Point centerPoint;
 
     enum Corner {
         BOTTOM_LEFT,
@@ -12,10 +13,10 @@ public class Square extends Shape {
     }
 
     public Square(Point centerPoint, double length) {
-        super(centerPoint);
         if (length <= 0.0) {
             throw new ZeroOrNegitiveValueError("Square length must be greater than zero.");
         }
+        this.centerPoint = centerPoint;
         this.Length = length;
     }
 
@@ -34,6 +35,11 @@ public class Square extends Shape {
     @Override
     public String toString() {
         return "(" + this.getCenter() + ", l=" + this.getLength() + ", Square)";
+    }
+
+    @Override
+    public Point getCenter() {
+        return centerPoint;
     }
 
     public Point getCorner(Corner corner) {
