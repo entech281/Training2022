@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch TestRectangle",
+      "request": "launch",
+      "mainClass": "frc.training.TestRectangle",
+      "projectName": "Training2022"
+    },
+    {
+      "type": "java",
       "name": "Launch TestCircle",
       "request": "launch",
       "mainClass": "frc.training.TestCircle",

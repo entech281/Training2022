@@ -2,7 +2,7 @@ package frc.training;
 
 public class Square extends Shape {
 
-    protected double Length;
+    protected double length;
     protected Point centerPoint;
 
     enum Corner {
@@ -17,24 +17,24 @@ public class Square extends Shape {
             throw new ZeroOrNegitiveValueError("Square length must be greater than zero.");
         }
         this.centerPoint = centerPoint;
-        this.Length = length;
+        this.length = length;
     }
 
     public double getLength() {
-        return this.Length;
+        return length;
     }
 
     public double getArea() {
-        return this.Length*this.Length;
+        return length*this.length;
     }
 
     public double getPerimeter() {
-        return this.Length*4;
+        return length*4;
     }
 
     @Override
     public String toString() {
-        return "(" + this.getCenter() + ", l=" + this.getLength() + ", Square)";
+        return "(" + getCenter() + ", l=" + getLength() + ", Square)";
     }
 
     @Override
@@ -44,20 +44,20 @@ public class Square extends Shape {
 
     public Point getCorner(Corner corner) {
 
-        double leftSide = this.getCenter().getX() - (this.getLength()/2);
-        double bottomSide = this.getCenter().getY() - (this.getLength()/2);
+        double leftSide = getCenter().getX() - (getLength()/2);
+        double bottomSide = getCenter().getY() - (getLength()/2);
 
         switch (corner) {
             case BOTTOM_LEFT:
                 return new Point(leftSide, bottomSide);
             case TOP_LEFT:
-                return new Point(leftSide, bottomSide+this.getLength());
+                return new Point(leftSide, bottomSide+getLength());
             case TOP_RIGHT:
-                return new Point(leftSide+this.getLength(), bottomSide+this.getLength());
+                return new Point(leftSide+getLength(), bottomSide+getLength());
             case BOTTOM_RIGHT:
-                return new Point(leftSide+this.getLength(), bottomSide);
+                return new Point(leftSide+getLength(), bottomSide);
             default:
-                return new Point(0.0, 0.0);
+                throw new HowDidWeGetHere("No really how did you getthis error");
         }
     }
 }

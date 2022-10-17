@@ -46,7 +46,7 @@ public class Triangle extends Shape {
             case CORNER_C:
                 return pointC;
             default:
-                return new Point(0.0, 0.0);
+                throw new HowDidWeGetHere("No really how did you getthis error");
         }
     }
 
