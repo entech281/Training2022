@@ -34,7 +34,7 @@ public class Square extends Shape {
 
     @Override
     public String toString() {
-        return "(" + getCenter() + ", l=" + getLength() + ", Square)";
+        return "(" + getCenter() + ", p=" + Math.round(getPerimeter() * 1000.0) / 1000.0 + ", a=" + Math.round(getArea() * 1000.0) / 1000.0 + ", Square)";
     }
 
     @Override
@@ -57,7 +57,7 @@ public class Square extends Shape {
             case BOTTOM_RIGHT:
                 return new Point(leftSide+getLength(), bottomSide);
             default:
-                throw new HowDidWeGetHere("No really how did you getthis error");
+                throw new HowDidWeGetHere("No really how did you get this error");
         }
     }
 }

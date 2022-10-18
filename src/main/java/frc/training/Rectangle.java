@@ -14,6 +14,7 @@ public class Rectangle extends Shape {
 
 
     public Rectangle(Point bottomLeftCorner, Point topRightCorner) {
+
         if ((bottomLeftCorner + "").equals(topRightCorner + "")) {
             throw new ZeroOrNegitiveValueError("Both points for Rectangle must have diiferent coordinents.");
         }
@@ -22,10 +23,15 @@ public class Rectangle extends Shape {
         this.topRightCorner = topRightCorner;
     }
 
-    public Point getCorners(Corner corner) {
+    public double getWidth() {
+        return topRightCorner.getX() - bottomLeftCorner.getX();
+    }
 
-        double width = topRightCorner.getX() - bottomLeftCorner.getX();
-        double hight = topRightCorner.getY() - bottomLeftCorner.getY();
+    public double getHight() {
+        return topRightCorner.getY() - bottomLeftCorner.getY();
+    }
+
+    public Point getCorners(Corner corner) {
 
         double leftSide = bottomLeftCorner.getX();
         double bottomSide = bottomLeftCorner.getY();
@@ -34,18 +40,19 @@ public class Rectangle extends Shape {
             case BOTTOM_LEFT:
                 return new Point(leftSide, bottomSide);
             case TOP_LEFT:
-                return new Point(leftSide, bottomSide+hight);
+                return new Point(leftSide, bottomSide+getHight());
             case TOP_RIGHT:
-                return new Point(leftSide+width, bottomSide+hight);
+                return new Point(leftSide+getWidth(), bottomSide+getHight());
             case BOTTOM_RIGHT:
-                return new Point(leftSide+width, bottomSide);
+                return new Point(leftSide+getWidth(), bottomSide);
             default:
-                throw new HowDidWeGetHere("No really how did you getthis error");
+                throw new HowDidWeGetHere("No really how did you get this error");
         }
     }
 
     @Override
     public Point getCenter() {
+
         double xSum = bottomLeftCorner.getX() + topRightCorner.getX();
         double ySum = bottomLeftCorner.getY() + topRightCorner.getY();
 
@@ -54,16 +61,16 @@ public class Rectangle extends Shape {
 
     @Override
     public double getArea() {
-        double width = topRightCorner.getX() - bottomLeftCorner.getX();
-        double hight = topRightCorner.getY() - bottomLeftCorner.getY();
-
-        return Math.abs(width * hight);
+        return Math.abs(getWidth() * getHight());
     }
 
     @Override
     public String toString() {
-        double width = topRightCorner.getX() - bottomLeftCorner.getX();
-        double hight = topRightCorner.getY() - bottomLeftCorner.getY();
-        return "(" + getCenter() + ", w=" + width + ", h=" + hight + ", Rectangle)";
+        return "(" + getCenter() + ", p=" + Math.round(getPerimeter() * 1000.0) / 1000.0 + ", a=" + Math.round(getArea() * 1000.0) / 1000.0 + ", Rectangle)";
+    }
+
+    @Override
+    public double getPerimeter() {
+        return (getWidth() * 2) + (getHight() * 2);
     }
 }

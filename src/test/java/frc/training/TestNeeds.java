@@ -1,5 +1,8 @@
 package frc.training;
 
-public class TestNeeds {
-    protected static final double SMALLDIFFERENCE = 0.001;
+public abstract class TestNeeds {
+    public abstract void testToString();
+    public abstract void testGetPerimeter();
+    public abstract void testGetArea();
+    public abstract void testGetCenterPoint();
 }

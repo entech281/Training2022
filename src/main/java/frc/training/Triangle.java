@@ -50,11 +50,18 @@ public class Triangle extends Shape {
         }
     }
 
+    private double getSideLength(Point A, Point B) {
+        double xDiff = Math.abs(A.x - B.x);
+        double yDiff = Math.abs(A.y - B.y);
+        return Math.sqrt(xDiff*xDiff + yDiff*yDiff);
+    }
+
+    @Override
     public double getArea() {
 
-        double pairA = pointA.getX() * (pointB.getY() + pointC.getY());
-        double pairB = pointB.getX() * (pointC.getY() + pointA.getY());
-        double pairC = pointC.getX() * (pointA.getY() + pointB.getY());
+        double pairA = pointA.getX() * (pointB.getY() - pointC.getY());
+        double pairB = pointB.getX() * (pointC.getY() - pointA.getY());
+        double pairC = pointC.getX() * (pointA.getY() - pointB.getY());
 
         double pairSum = Math.abs(pairA + pairB + pairC); 
 
@@ -66,5 +73,18 @@ public class Triangle extends Shape {
         double xSum = pointA.getX() + pointB.getX() + pointC.getX();
         double ySum = pointA.getY() + pointB.getY() + pointC.getY();
         return new Point(xSum/3.0, ySum/3.0);
+    }
+
+    @Override
+    public double getPerimeter() {
+        double sideA = getSideLength(pointA, pointB);
+        double sideB = getSideLength(pointA, pointC);
+        double sideC = getSideLength(pointB, pointC);
+        return sideA + sideB + sideC;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + getCenter() + ", p=" + Math.round(getPerimeter() * 1000.0) / 1000.0 + ", a=" + Math.round(getArea() * 1000.0) / 1000.0 + ", Triangle)";
     }
 }

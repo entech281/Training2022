@@ -9,6 +9,8 @@ import static org.junit.Assert.assertEquals;
 
 public class TestTriangle extends TestNeeds {
     
+    protected static final double SMALLDIFFERENCE = 0.001;
+    
     @Test
     public void testConstuctorErrorForMakingLineZero() {
         assertThrows(Exception.class, () -> new Triangle(new Point(0,0), new Point(1,0), new Point(2,0)));
@@ -25,7 +27,7 @@ public class TestTriangle extends TestNeeds {
     }
 
     @Test
-    public void testGetCenterForOrginCentroid() {
+    public void testGetCenterPoint() {
         Point a = new Point(0,1);
         Point b = new Point(-1,-1);
         Point c = new Point(1,0);
@@ -37,7 +39,7 @@ public class TestTriangle extends TestNeeds {
     }
 
     @Test
-    public void testGetCenterForNegitiveCentroid() {
+    public void testGetCenterPointForNegitiveCentroid() {
         Point a = new Point(-1,-1);
         Point b = new Point(-2,0);
         Point c = new Point(-3,-2);
@@ -49,7 +51,7 @@ public class TestTriangle extends TestNeeds {
     }
 
     @Test
-    public void testGetCenterForPositiveCentroid() {
+    public void testGetCenterPointForPositiveCentroid() {
         Point a = new Point(1,1);
         Point b = new Point(8,9);
         Point c = new Point(0,2);
@@ -61,7 +63,7 @@ public class TestTriangle extends TestNeeds {
     }
 
     @Test
-    public void testGetCornersForUnitTriangle() {
+    public void testGetCorners() {
         Point a = new Point(0,1);
         Point b = new Point(-1,-1);
         Point c = new Point(1,0);
@@ -74,7 +76,7 @@ public class TestTriangle extends TestNeeds {
     }
 
     @Test
-    public  void testGetAreaForUnitTriangle() {
+    public  void testGetArea() {
         Point a = new Point(0,0);
         Point b = new Point(-10,0);
         Point c = new Point(0,-10);
@@ -82,5 +84,27 @@ public class TestTriangle extends TestNeeds {
         Triangle T = new Triangle(a, b, c);
 
         assertEquals(50.0, T.getArea(), SMALLDIFFERENCE);
+    }
+
+    @Test
+    public void testGetPerimeter() {
+        Point a = new Point(0,1);
+        Point b = new Point(-1,-1);
+        Point c = new Point(1,0);
+
+        Triangle T = new Triangle(a, b, c);
+
+        assertEquals(5.886, T.getPerimeter(), SMALLDIFFERENCE);
+    }
+
+    @Test
+    public void testToString() {
+        Point a = new Point(0,1);
+        Point b = new Point(-1,-1);
+        Point c = new Point(1,0);
+
+        Triangle T = new Triangle(a, b, c);
+
+        assertEquals("((0.0,0.0), p=5.886, a=1.5, Triangle)", T + "");
     }
 }

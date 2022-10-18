@@ -17,22 +17,23 @@ public class Circle extends Shape {
         return Math.PI*(this.Radius*this.Radius);
     }
     
-    public double getCircumference() {
-        return Math.PI*this.Radius*2;
-    }
-
     public double getRadius() {
         return this.Radius;
     }
 
     @Override
     public String toString(){
-        return "(" + this.getCenter() + ", r=" + this.getRadius() + ", Circle)";
+        return "(" + getCenter() + ", p=" + Math.round(getPerimeter() * 1000.0) / 1000.0 + ", a=" + Math.round(getArea() * 1000.0) / 1000.0 + ", Circle)";
     }
 
     @Override
     public Point getCenter(){
         return centerPoint;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return Math.PI*this.Radius*2;
     }
 
     /*

@@ -9,27 +9,33 @@ import static org.junit.Assert.assertEquals;
 
 public class TestSquare  extends TestNeeds{
 
+    protected static final double SMALLDIFFERENCE = 0.001;
+
     @Test
-    public void testInputCenterPoint() {
+    public void testGetCenterPoint() {
         Square S = new Square(new Point(1.0, 1.0), 2);
+        
         assertEquals("(1.0,1.0)", S.getCenter() + "");
     }
 
     @Test
-    public void testInputLength() {
+    public void testGetLength() {
         Square S = new Square(new Point(1.0, 1.0), 2);
+
         assertEquals(2, S.getLength(), SMALLDIFFERENCE);
     }
 
     @Test
-    public void testOutputArea() {
+    public void testGetArea() {
         Square S = new Square(new Point(1.0, 1.0), 2);
+
         assertEquals(4, S.getArea(), SMALLDIFFERENCE);
     }
 
     @Test
-    public void testOutputPerimeter() {
+    public void testGetPerimeter() {
         Square S = new Square(new Point(1.0, 1.0), 2);
+
         assertEquals(8, S.getPerimeter(), SMALLDIFFERENCE);
     }
 
@@ -39,8 +45,9 @@ public class TestSquare  extends TestNeeds{
     }
     
     @Test
-    public void testCornersForUnitSquare() {
+    public void testGetCorners() {
         Square S = new Square(new Point(1.0, 1.0), 2);
+
         assertEquals("(0.0,0.0)", S.getCorner(Corner.BOTTOM_LEFT).toString());
         assertEquals("(0.0,2.0)", S.getCorner(Corner.TOP_LEFT).toString());
         assertEquals("(2.0,2.0)", S.getCorner(Corner.TOP_RIGHT).toString());
@@ -48,8 +55,9 @@ public class TestSquare  extends TestNeeds{
     }
 
     @Test
-    public void testToStringForUnitSquare() {
-        Square S = new Square(new Point(1.0, 2.1), 2.5);
-        assertEquals("((1.0,2.1), l=2.5, Square)", S + "");
+    public void testToString() {
+        Square S = new Square(new Point(1.0, 2.1), 2);
+
+        assertEquals("((1.0,2.1), p=8.0, a=4.0, Square)", S + "");
     }
 }

@@ -6,28 +6,39 @@ import static org.junit.Assert.assertThrows;
 
 public class TestCircle extends TestNeeds{
 
+    public static void main(String[] args) {
+        Circle c = new Circle(new Point(1.0, -1.5), 1.0);
+
+        System.out.println(c);
+    }
+
+    protected static final double SMALLDIFFERENCE = 0.001;
+
     @Test
-    public void testInputAndReturnRadiusOfUnitCicle() {
+    public void testGetRadius() {
         Circle c = new Circle(new Point(1.0, 0.0), 1.0);
+
         assertEquals(1.0, c.getRadius(), SMALLDIFFERENCE);
     }
 
     @Test
-    public void testInputAndReturnCenterPointOfUnitCicle() {
+    public void testGetCenterPoint() {
         Circle c = new Circle(new Point(1.0, 0.0), 1.0);
+
         assertEquals("(1.0,0.0)", c.getCenter() + "");
     }
 
     @Test
-    public void testOutputAreaOfUnitCicle() {
+    public void testGetArea() {
         Circle c = new Circle(new Point(1.0, 0.0), 1.0);
         assertEquals(Math.PI, c.getArea(), SMALLDIFFERENCE);
     }
 
     @Test
-    public void testOutputCircumferenceOfUnitCircle() {
+    public void testGetPerimeter() {
         Circle c = new Circle(new Point(1.0, 0.0), 1.0);
-        assertEquals(Math.PI*2, c.getCircumference(), SMALLDIFFERENCE);
+
+        assertEquals(Math.PI*2, c.getPerimeter(), SMALLDIFFERENCE);
     }
 
     @Test
@@ -36,9 +47,10 @@ public class TestCircle extends TestNeeds{
     }
 
     @Test
-    public void testToStringForUnitCircle() {
-        Circle c = new Circle(new Point(1.0, -1.5), 2.0);
-        assertEquals("((1.0,-1.5), r=2.0, Circle)", c + "");
+    public void testToString() {
+        Circle c = new Circle(new Point(1.0, -1.5), 1.0);
+        
+        assertEquals("((1.0,-1.5), p=6.283, a=3.142, Circle)", c + "");
     }
     /*
     @Test
@@ -51,7 +63,7 @@ public class TestCircle extends TestNeeds{
     }
 
     @Test
-    public void testChangingCircleRadius() throws Exception {
+    public void testChangingCircleRadius() {
         Circle c = new Circle(new Point(0.0, 0.0), 1.0);
         c.changeRadius(0.5);
         assertEquals("((0.0,0.0), r=1.5, Circle)", c + "");
@@ -60,7 +72,7 @@ public class TestCircle extends TestNeeds{
     }
 
     @Test
-    public void testChangingCircleRadiusErrorReachedZero() throws Exception {
+    public void testChangingCircleRadiusErrorReachedZero() {
         Circle c = new Circle(new Point(0.0, 0.0), 1.0);
         assertThrows(Exception.class, () -> c.changeRadius(-1.0));
     }*/
