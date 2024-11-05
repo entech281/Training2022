@@ -5,4 +5,11 @@
 package frc.training;
 
 /** Add your docs here. */
-public class Shape {}
+public  interface Shape {
+    
+    public  void foo();
+    //protected int timesTwo(int in){
+    //    return in*2;
+    //}
+}
+
