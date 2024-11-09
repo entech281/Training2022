@@ -8,9 +8,7 @@ public class Square extends Shape {
     private double length; 
 
     public Square(Point center, double length) {
-        if(length<0){
-            throw new IllegalArgumentException("Radius cannot be negative");
-        }
+        
         this.center = center;
         this.length = length;
     }

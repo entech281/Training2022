@@ -15,6 +15,7 @@ public class Triangle extends Shape {
 
     @Override
     public double getArea() {
+
         return Math.abs(p1.getX() * (p2.getY() - p3.getY()) + 
                         p2.getX() * (p3.getY() - p1.getY()) + 
                         p3.getX() * (p1.getY() - p2.getY())) / 2.0;

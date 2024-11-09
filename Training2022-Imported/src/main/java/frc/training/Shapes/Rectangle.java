@@ -12,7 +12,7 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public double getArea() {
+    public double getArea() {        
         double width = topRight.getX() - bottomLeft.getX();
         double height = topRight.getY() - bottomLeft.getY();
         return width * height;
